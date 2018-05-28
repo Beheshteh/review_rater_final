@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Yelp Review Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    
+</head>
+
+<body>
+  <!--Navbar-->
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <button class="navbar-header" ><a href="/">Home</a></button>
+      
+      <div class="btn-group navbar-right">
+          <button class="navbar-header" ><a href="/methodology">Methodology</a></button>
+          <button class="navbar-header" ><a href="/data">Data</a></button>   
+          
+      </div>  
+    </div><!-- /.container-fluid -->
+  </nav>
+  
+  <div class="container">
+    <br>
+    
+    <img id="mainpicture" src="http://cdn.onlyinyourstate.com/wp-content/uploads/2016/07/s7-700x241.jpg">
+    <h1 align = "center" >Predicting your review rating based on the model which trained with the Yelp data </h1>
+
+    <form method="POST" action="">
+
+        <div class="input-group">
+           <!-- <input type="text" name="searchTerms" class="form-control" id="search" aria-describedby="search" placeholder="Enter your review"> -->
+           <textarea rows="5" cols="50" type="text" name="searchTerms" class="form-control" id="search" aria-describedby="search" placeholder="Enter your review"></textarea>
+           <!-- <input class="form-control-rating"  placeholder="Enter {1, 2, 3, 4, 5}">
+           <span class="input-group-btn">
+                <button id="submit" type="submit" class="btn"><a>Submit</a></button>
+            </span> -->
+        </div>
+        <div align = "left">
+            
+        <input class="form-control-rating" type = "number" name ="humanRating" placeholder="Your review (1-5)">
+        <span class="input-group-btn">
+             <button id="submit"  type="submit" class="btn"><a>Submit</a></button>
+         </span>
+         </div>
+    </form>
+    <br>
+    <div class="row">
+      <div align = "center" class="col-lg-12">
+          <h5 align = "center"> We predict your rating to be: {{ predict }}</h5>
+          <h5 align = "center"> Your review: {{ review_term }}</h5>
+      </div>
+    </div>
+            
+  </div>   
+</body>
+
+</html>

@@ -1,1 +1,2 @@
-# review_rater_final
+# Review_rater
+Front end reviewing tool with backend machine learning
