@@ -28,12 +28,12 @@ p {
 }
 
 h1 {
-  padding: 20px 0;
-  margin: 0;
+  padding: 1%;
+  margin: 2%;
   margin-bottom: 20px;
   font-size: 20px;
   color: #333;
-  text-align: center;
+  text-align: left;
   width:80%;
 }
 
@@ -82,7 +82,7 @@ button {
 #mainpicture {
   float:center;
   height: 250px;
-  width: 100%;
+  width: 80%;
   margin-right: 20px;
   margin-bottom: 20px;
 }
@@ -90,7 +90,7 @@ button {
 #datapicture {
   float:center;
   height: 170px;
-  width: 100%;
+  width: 50%;
   margin-right: 20px;
   margin-bottom: 20px;
 }

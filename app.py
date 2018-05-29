@@ -10,6 +10,8 @@ import Hee_final
 import test
 from flask import Flask, jsonify, render_template, request
 
+from sqlalchemy import func
+
 # Flask App
 app = Flask(__name__)
 
@@ -78,6 +80,25 @@ def sqlquery():
     x = session.query(Reviews.record_id, Reviews.review, Reviews.human_rating, Reviews.machine_rating, Reviews.deviations).all()
     return jsonify(x)
 
+@app.route('/barchart')
+def chart():
+    
+    human_rating = session.query(Reviews.human_rating, func.count(Reviews.human_rating)).group_by(Reviews.human_rating).all()
+    machine_rating = session.query(Reviews.machine_rating, func.count(Reviews.machine_rating)).group_by(Reviews.machine_rating).all()
+    deviations = session.query(Reviews.deviations, func.count(Reviews.deviations)).group_by(Reviews.deviations).all()
+     
+    human_rating_x = [row[0] for row in human_rating]
+    human_rating_y = [row[1] for row in human_rating]
+
+    machine_rating_x = [row[0] for row in machine_rating]
+    machine_rating_y = [row[1] for row in machine_rating]
+
+    deviations_x = [row[0] for row in deviations]
+    deviations_y = [row[1] for row in deviations]
+    
+    return jsonify({'human_rating_x': human_rating_x, 'human_rating_y': human_rating_y, 'machine_rating_x': machine_rating_x, 'machine_rating_y': machine_rating_y, 'deviations_x': deviations_x, 'deviations_y': deviations_y })
+
+
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)

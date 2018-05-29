@@ -59,8 +59,18 @@
           <h5 align = "center"> Your review: {{ review_term }}</h5>
       </div>
     </div>
-            
+           
   </div>   
+  
+	 <figure class="half" style="display:relative"> 
+      <div id="plot" alt="ML" height="200px" width = "200px"></div>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+      <div id="plot2" alt="deivation" height="200px" width = "200px"></div>
+      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  
+    </figure>
 </body>
 
 </html>
