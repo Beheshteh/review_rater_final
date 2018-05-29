@@ -18,7 +18,7 @@ function buildPlot() {
 
     var trace2 = {
       type: 'bar',
-      x: response.machine_rating_x.push(0.2),
+      x: response.machine_rating_x,
       y: response.machine_rating_y,
       
       marker: {
@@ -30,7 +30,7 @@ function buildPlot() {
     var data = [trace1, trace2];
 
     var layout = {
-      title: 'Machin vs human rating',
+      title: 'Machine vs human rating',
       xaxis:{
         title: "Rating"
       },
