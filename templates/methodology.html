@@ -23,7 +23,7 @@
             
             <div class="btn-group navbar-right">
                 <button class="navbar-header"><a href="/methodology">Methodology</a></button>
-                <button class="navbar-header"><a href="/data">Data</a></button>   
+                <button class="navbar-header"><a href="/collection">Review Collection</a></button>   
                 
             </div>  
           </div><!-- /.container-fluid -->
@@ -32,14 +32,15 @@
   </nav>
 
   <div class="container">
-    <h1>Source of Data</h1>
+    <br>
+    <h3>Source of Data</h3>
     <p> The data used in this project was downloaded from 
        <a class= "data" href="https://www.kaggle.com/yelp-dataset/yelp-dataset/data">Kaggle Yelp Dataset</a>
         (yelp_business.csv and yelp_review.csv). As you can see this data skewed geographically. </p>
 
-    <p><img  src="../static/img/dashboardmap.PNG" alt="Map of data" height="350px" width = 80% float = "center"></p>    
+    <p><img  src="../static/img/dashboardmap.PNG" alt="Map of data" height="300px" width = 80% float = "center"></p>    
          
-     <h1>Data Screening and selection</h1>
+     <h3>Data Screening and selection</h3>
      <p>The data set provided with Yelp was included 7 files and 5.53 GB of data. For the purpose of our project we 
        limited our data to resturants, bar and other food related categories. Also we slice our data based on the users
         who wrote 5o to 100 reviews. </p>
@@ -89,7 +90,7 @@
     <p><img src="../static/img/export_filtered_reviews_50_100.PNG" alt="review 50_100" height="200px" width = "200px" ></p>
   
   
-    <h1>Naive Bayes Model</h1>
+    <strong><h3>Naive Bayes Model</h3></strong>
 
     <p>We have hunderds of thousands of data points and quite a few variables in our training data set. In such situation,
      ‘Naive Bayes‘, can be extremely fast relative to other classification algorithms. It works on Bayes theorem of probability 
@@ -102,9 +103,9 @@
         Naive Bayes model is easy to build and particularly useful for very large data sets. Along with simplicity, 
         Naive Bayes is known to outperform even highly sophisticated classification methods.</p>
 
-     <img id="datapicture" src="https://www.analyticsvidhya.com/wp-content/uploads/2015/09/Bayes_rule-300x172.png">
+     <img src="https://www.analyticsvidhya.com/wp-content/uploads/2015/09/Bayes_rule-300x172.png" height="200px" width = "200px">
 
-    <h1>Natural Network Model</h1>
+     <strong><h3>Natural Network Model</h3></strong>
     <p>We used a Neural Network Model and tokenized text reviews to classify them in a 1-5 rating.
        Traditional Neural Networks use each instance of information fed in order to produce an output:</p>
        <img id="datapicture" src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png">

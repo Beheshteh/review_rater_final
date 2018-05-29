@@ -5,14 +5,15 @@ function buildPlot() {
   Plotly.d3.json(url, function(error, response) {
     console.log(response);
     
-    var trace1 = {
+   var trace1 = {
       type: 'bar',
       x: response.human_rating_x,
       y: response.human_rating_y,
       
       marker: {
         color: "#8a89a6"
-      }
+      },
+      name: "Human Rating"
     };
 
     var trace2 = {
@@ -22,7 +23,8 @@ function buildPlot() {
       
       marker: {
         color: "#ff8c00"
-      }
+      },
+      name: "Machine Rating"
     };
 
     var data = [trace1, trace2];
@@ -35,14 +37,12 @@ function buildPlot() {
       yaxis:{
         title:"count"
       },
-      margin:{
-        l:1000,
-        t:1
-      }
+      
     };
 
     Plotly.newPlot('plot', data, layout);
   });
+
 
   Plotly.d3.json(url, function(error, response) {
     console.log(response);
@@ -68,10 +68,7 @@ function buildPlot() {
       yaxis:{
         title:"Count"
       },
-      margin:{
-        l:1000,
-        t:1,
-      }
+      
     };
 
     Plotly.newPlot('plot2', data2, layout);

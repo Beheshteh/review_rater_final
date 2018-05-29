@@ -22,7 +22,7 @@
       
       <div class="btn-group navbar-right">
           <button class="navbar-header" ><a href="/methodology">Methodology</a></button>
-          <button class="navbar-header" ><a href="/data">Data</a></button>   
+          <button class="navbar-header" ><a href="/collection">Review Collection</a></button>   
           
       </div>  
     </div><!-- /.container-fluid -->
@@ -32,26 +32,21 @@
     <br>
     
     <img id="mainpicture" src="http://cdn.onlyinyourstate.com/wp-content/uploads/2016/07/s7-700x241.jpg">
-    <h1 align = "center" >Predicting your review rating based on the model which trained with the Yelp data </h1>
+    <h3>Predicting your review rating based on the model which trained with the Yelp data </h3>
 
     <form method="POST" action="">
 
         <div class="input-group">
-           <!-- <input type="text" name="searchTerms" class="form-control" id="search" aria-describedby="search" placeholder="Enter your review"> -->
            <textarea rows="5" cols="50" type="text" name="searchTerms" class="form-control" id="search" aria-describedby="search" placeholder="Enter your review"></textarea>
-           <!-- <input class="form-control-rating"  placeholder="Enter {1, 2, 3, 4, 5}">
-           <span class="input-group-btn">
-                <button id="submit" type="submit" class="btn"><a>Submit</a></button>
-            </span> -->
         </div>
         <div align = "left">
-            
-        <input class="form-control-rating" type = "number" name ="humanRating" placeholder="Your review (1-5)">
-        <span class="input-group-btn">
+          <input class="form-control-rating" type = "number" name ="humanRating" placeholder="Your review (1-5)">
+          <span class="input-group-btn">
              <button id="submit"  type="submit" class="btn"><a>Submit</a></button>
-         </span>
-         </div>
+          </span>
+        </div>
     </form>
+
     <br>
     <div class="row">
       <div align = "center" class="col-lg-12">
@@ -59,18 +54,18 @@
           <h5 align = "center"> Your review: {{ review_term }}</h5>
       </div>
     </div>
-           
-  </div>   
-  
-	 <figure class="half" style="display:relative"> 
-      <div id="plot" alt="ML" height="200px" width = "200px"></div>
+  </div>  
+    <br>
+    <figure class="half" style="display:relative" >
+      <div id="plot" alt="ML" height="450px" width = "450px"></div><br>
+      <div id="plot2" alt="deivation" height="450px" width = "450px"></div>
       <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-      <div id="plot2" alt="deivation" height="200px" width = "200px"></div>
-      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  
     </figure>
+
+
+  
 </body>
 
 </html>

@@ -59,26 +59,18 @@ def index():
         session.commit()
     return render_template('index.html', predict = s, review_term = searchTerms)
     
-
-
-@app.route("/data/")
-def data():
-    return render_template("data.html")
-
 @app.route("/methodology/")
 def methodology():
     return render_template("methodology.html")
-
-    return render_template("Method.html")
 
 @app.route("/home/")
 def home():
     return render_template("index.html")    
 
-@app.route('/collection')
+@app.route('/collection/')
 def sqlquery():
-    x = session.query(Reviews.record_id, Reviews.review, Reviews.human_rating, Reviews.machine_rating, Reviews.deviations).all()
-    return jsonify(x)
+    response = session.query(Reviews.record_id, Reviews.review, Reviews.human_rating, Reviews.machine_rating, Reviews.deviations).all()
+    return render_template("collection.html", reviews=response)
 
 @app.route('/barchart')
 def chart():
@@ -101,4 +93,4 @@ def chart():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5002)
+    app.run(debug=True, port=5023)
