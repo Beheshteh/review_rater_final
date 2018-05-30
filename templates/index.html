@@ -31,8 +31,9 @@
   <div class="container">
     <br>
     
-    <img id="mainpicture" src="https://dataxboost.files.wordpress.com/2018/03/nlp.jpg?w=880&h=312&crop=1"> 
-
+     
+    <img  id="mainpicture" src="https://dataxboost.files.wordpress.com/2018/03/nlp.jpg?w=880&h=312&crop=1"> 
+    <br>
     <h3> Predicting your review rating based on the model which trained with the Yelp data </h3>
 
     <form method="POST" action="">
@@ -41,7 +42,8 @@
            <textarea rows="5" cols="50" type="text" name="searchTerms" class="form-control" id="search" aria-describedby="search" placeholder="Enter your review"></textarea>
         </div>
         <div align = "left">
-          <input class="form-control-rating" type = "number" name ="humanRating" placeholder="Your review (1-5)">
+          <input class="form-control-rating" type = "number" name ="humanRating" min="1" max="5" placeholder="Your review (1-5)">
+          
           <span class="input-group-btn">
              <button id="submit"  type="submit" class="btn"><a>Submit</a></button>
           </span>

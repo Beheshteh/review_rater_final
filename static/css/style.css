@@ -28,20 +28,18 @@ p {
 }
 
 h1 {
-  padding: 1%;
-  margin: 2%;
-  margin-bottom: 20px;
+  
   font-size: 20px;
   color: #333;
-  text-align: left;
-  width:80%;
+  text-align: center;
+  border-bottom:1px solid powderblue;
 }
 
 h3 {
   font-size: 18px;
   color: #333;
   text-align: left;
-  border-bottom:1px solid #FCFCFC;
+  border-bottom:1px solid white;
 }
 
 h5 {
@@ -83,7 +81,7 @@ button {
 #mainpicture {
   float:center;
   height: 250px;
-  width: 80%;
+  width: 100%;
   margin-right: 20px;
   margin-bottom: 20px;
 }
