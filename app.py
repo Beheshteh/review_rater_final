@@ -45,7 +45,10 @@ session = Session(bind=engine)
 @app.route("/", methods=["GET", "POST"])
 def index():
     s = ""
+    top = ""
+    bottom = ""
     searchTerms = ""
+    percentage_accurate = ""
     if request.method == "POST":
         print(request.form)
         human_rate = int(request.form['humanRating'])
@@ -54,10 +57,13 @@ def index():
         predicted = word_to_predict(searchTerms)
         s = int(predicted)
         deviation = abs(human_rate - s)
-        print(s)
         session.add(Reviews(review=searchTerms, human_rating = human_rate, machine_rating = s, deviations = deviation))
         session.commit()
-    return render_template('index.html', predict = s, review_term = searchTerms)
+        top = session.query(Reviews).filter(Reviews.deviations == 0).count()
+        print(top)
+        bottom = session.query(Reviews.deviations).count()
+        percentage_accurate = round(top/bottom,1) * 100
+    return render_template('index.html', predict = s, review_term = searchTerms, accuracy = percentage_accurate)
     
 @app.route("/methodology/")
 def methodology():
@@ -67,10 +73,10 @@ def methodology():
 def home():
     return render_template("index.html")    
 
-@app.route('/collection/')
+@app.route('/data/')
 def sqlquery():
     response = session.query(Reviews.record_id, Reviews.review, Reviews.human_rating, Reviews.machine_rating, Reviews.deviations).all()
-    return render_template("collection.html", reviews=response)
+    return jsonify(response)
 
 @app.route('/barchart')
 def chart():

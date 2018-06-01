@@ -6,6 +6,7 @@
   <title>Yelp Review Analysis</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
 
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -16,18 +17,20 @@
 <body>
   <!--Navbar-->
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <button class="navbar-header" ><a href="/">Home</a></button>
-      
-      <div class="btn-group navbar-right">
-          <button class="navbar-header" ><a href="/methodology">Methodology</a></button>
-          <button class="navbar-header" ><a href="/collection">Review Collection</a></button>   
-          
-      </div>  
-    </div><!-- /.container-fluid -->
-  </nav>
-  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="index">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/methodology">Methodology</a>
+          <a class="nav-item nav-link" href="/collection">Data</a>
+        </div>
+      </div>
+    </nav>
+
   <div class="container">
     <br>
     
@@ -37,6 +40,7 @@
     <h3> Predicting your review rating based on the model which trained with the Yelp data </h3>
 
     <form method="POST" action="">
+      <!-- <div class="col-lg-8" style="margin-left:17%"> -->
 
         <div class="input-group">
            <textarea rows="5" cols="50" type="text" name="searchTerms" class="form-control" id="search" aria-describedby="search" placeholder="Enter your review"></textarea>
@@ -47,27 +51,38 @@
           <span class="input-group-btn">
              <button id="submit"  type="submit" class="btn"><a>Submit</a></button>
           </span>
+          <br>
+          <div class="row">
+            <br>
+            <div align = "center" class="col-lg-12">
+            <br>
+                <h5 align = "center"> We predict your rating to be: {{ predict }}</h5>
+                <h5 align = "center"> Your review: {{ review_term }}</h5>
+                <h5 align = "center"> Our current accuracy is: {{ accuracy }} %</h5>
+            </div>
+          </div>
+          <h6>Choose a view below:</h6>
+          <div align = "left" class="input-group">
+          <br>
+            <select id="selectModel" class="form-control" width = "100%" title="Choose a model...">
+            <option>Choose a View...</option>
+            <option>Ratings View</option>
+            <option>Deviations View</option>
+          </select>
+          </div>
+
         </div>
+      <!-- </div> -->
     </form>
 
     <br>
+
     <div class="row">
-      <div align = "center" class="col-lg-12">
-          <h5 align = "center"> We predict your rating to be: {{ predict }}</h5>
-          <h5 align = "center"> Your review: {{ review_term }}</h5>
+            <div id="plot" alt="ML" style="margin-left:0%; width: 100%;"></div>
       </div>
-    </div>
   </div>  
     <br>
 
-  <div class="row">
-      <div class="col-xs-3 col-sm-6 col-md-6">
-        <div id="plot" alt="ML" height="450px" width = "450px"></div>
-      </div>
-      <div class="col-xs-3 col-sm-6 col-md-6">
-        <div id="plot2" alt="deivation" height="450px" width = "450px"></div>
-      </div>
-  </div>
       <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>

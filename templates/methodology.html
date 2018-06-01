@@ -15,35 +15,32 @@
 </head>
 
 <body>
-  <!--Navbar-->
 
-  <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <button class="navbar-header"><a href="/">Home</a></button>
-            
-            <div class="btn-group navbar-right">
-                <button class="navbar-header"><a href="/methodology">Methodology</a></button>
-                <button class="navbar-header"><a href="/collection">Review Collection</a></button>   
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 
-            </div>  
-          </div><!-- /.container-fluid -->
-        </nav>
-    </div><!-- /.container-fluid -->
-  </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home</a>
+            <a class="nav-item nav-link" href="/methodology">Methodology</a>
+            <a class="nav-item nav-link" href="/collection">Data</a>
+          </div>
+        </div>
+      </nav>
 
   <div class="container">
     <br>
     <h3>Source of Data</h3>
     <p> The data used in this project was downloaded from 
-       <a class= "data" href="https://www.kaggle.com/yelp-dataset/yelp-dataset/data">Kaggle Yelp Dataset</a>
-        (yelp_business.csv and yelp_review.csv). As you can see this data skewed geographically. </p>
-
-    <img  id="mainpicture"  src="../static/img/dashboardmap.PNG" alt="Map of data">    
+       <b><a class= "data" href="https://www.kaggle.com/yelp-dataset/yelp-dataset/data">Kaggle Yelp Dataset</a></b>
+        (yelp_business.csv and yelp_review.csv). </p>
          
      <h3>Data Screening and selection</h3>
      <p>The data set provided with Yelp was included 7 files and 5.53 GB of data. For the purpose of our project we 
        limited our data to resturants, bar and other food related categories. Also we slice our data based on the users
-        who wrote 5o to 100 reviews. </p>
+        who wrote 50 to 100 reviews. </p>
 
      <table>
         <tr>
@@ -91,8 +88,6 @@
   
   
     <strong><h3>Naive Bayes Model</h3></strong>  
-    <img src="" >
-
     <p>We have hunderds of thousands of data points and quite a few variables in our training data set. In such situation,
      ‘Naive Bayes‘, can be extremely fast relative to other classification algorithms. It works on Bayes theorem of probability 
      to predict the class of unknown data set.</p>
