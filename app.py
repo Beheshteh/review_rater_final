@@ -62,7 +62,8 @@ def index():
         top = session.query(Reviews).filter(Reviews.deviations == 0).count()
         print(top)
         bottom = session.query(Reviews.deviations).count()
-        percentage_accurate = round(top/bottom,1) * 100
+        print(bottom)
+        percentage_accurate = round(top/bottom,2) * 100
     return render_template('index.html', predict = s, review_term = searchTerms, accuracy = percentage_accurate)
     
 @app.route("/methodology/")
