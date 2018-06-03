@@ -97,7 +97,9 @@ def chart():
     
     return jsonify({'human_rating_x': human_rating_x, 'human_rating_y': human_rating_y, 'machine_rating_x': machine_rating_x, 'machine_rating_y': machine_rating_y, 'deviations_x': deviations_x, 'deviations_y': deviations_y })
 
-
+@app.route('/NaiveBayes_Yelp_30K_BM.html')
+def pic():
+    return render_template("NaiveBayes_Yelp_30K_BM.html")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5008)
+    app.run(debug=True, port=5022)
