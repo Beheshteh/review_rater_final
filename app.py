@@ -66,9 +66,28 @@ def index():
         percentage_accurate = round(top/bottom,2) * 100
     return render_template('index.html', predict = s, review_term = searchTerms, accuracy = percentage_accurate)
     
+# @app.route("/methodology/")
+# def methodology():
+#     return render_template("methodology.html")
+
+### ADDITIONS
 @app.route("/methodology/")
 def methodology():
-    return render_template("methodology.html")
+    return render_template("methods.html")
+
+@app.route("/data/naive_b")
+def naives():
+    return render_template("Naive_B.html")
+
+@app.route("/data/neural_n")
+def neurals():
+    return render_template("Neural_N.html")
+
+@app.route("/data/data_clean")
+def cleans():
+    return render_template("Data_clean.html")
+
+### END OF ADDITIONS
 
 @app.route("/home/")
 def home():
