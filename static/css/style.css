@@ -37,6 +37,7 @@ h1 {
 
 h3 {
   font-size: 18px;
+  font-weight: bold;
   color: #333;
   text-align: left;
   border-bottom:1px solid white;
@@ -129,3 +130,10 @@ table {
   tr:nth-child(even) {
   background-color: #dddddd;
   }
+
+  #example1 {
+    border: 10px  black;
+    padding: 15px;
+    background: white;
+    background-clip: border-box;    
+}
